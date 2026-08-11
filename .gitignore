@@ -48,7 +48,8 @@ build-*/
 CMakeFiles/
 CMakeCache.txt
 cmake_install.cmake
-Makefile
+# Makefile  <- deliberately NOT ignored: a hand-written Makefile must be tracked.
+#              Re-enable only if CMake starts generating one here.
 install_manifest.txt
 compile_commands.json
 
@@ -67,3 +68,24 @@ vcpkg_installed/
 # test output & cache
 Testing/
 .cache/
+
+# Pesos del modelo
+*.bin
+*.safetensors
+*.pt
+*.npy
+*.npz
+
+# Python 
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Intermedios de nvcc
+*.cubin
+*.ptx
+*.fatbin
+
+# IDE
+.vs/
