@@ -146,5 +146,6 @@ transformer.h.11.mlp.c_proj.weight                 | shape: (3072, 768) | stride
 transformer.h.11.mlp.c_proj.bias                   | shape: (768,) | stride: (1,) | numel:768 | total bytes: 3072
 transformer.ln_f.weight                            | shape: (768,) | stride: (1,) | numel:768 | total bytes: 3072
 transformer.ln_f.bias                              | shape: (768,) | stride: (1,) | numel:768 | total bytes: 3072
-Total Parameters:  124439808
-Total Bytes:  497.76 MB or  0.498 GB
+lm_head.weight                                     | shape: (50257, 768) | stride: (768, 1) | numel:38597376 | total bytes: 154389504
+Total Parameters:  163037184
+Total Bytes:  652.15 MB or  0.652 GB
