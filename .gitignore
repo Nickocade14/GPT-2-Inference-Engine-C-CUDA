@@ -88,4 +88,4 @@ venv/
 *.fatbin
 
 # IDE
-.vs/
+.vscode/

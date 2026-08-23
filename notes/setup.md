@@ -2,10 +2,8 @@
 
 ## Installation Paths and Toolchain
 
-Canonical hardware and version information lives in `CLAUDE.md` §3 — do not
-duplicate it here. This file documents **installation paths, environment
-initialization, build procedure, and CUDA-specific gotchas**.
-
+* GPU: NVIDIA GeForce RTX 4060 Laptop (Ada Lovelace, `sm_89`, 8188 MiB VRAM)
+* Driver 610.88 (WDDM), CUDA UMD 13.3
 * CUDA Toolkit → `C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\`
 * MSVC 19.50 / VS 2026 Build Tools →
   `C:\Program Files (x86)\Microsoft Visual Studio\18\BuildTools\`
@@ -44,6 +42,11 @@ line, which covers both things this file asks you to check.
 
 ```powershell
 nvcc -arch=sm_89 src\file.cu -o build\file.exe
+```
+Run it: 
+
+```powershell
+.\build\file.exe
 ```
 
 Verify what actually landed in the binary:
