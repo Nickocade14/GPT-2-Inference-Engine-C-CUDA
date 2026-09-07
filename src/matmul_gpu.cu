@@ -9,6 +9,7 @@ void matrixB_Filled(float *matrixB, int K, int N){
         matrixB[i] = float(i + 1);
     }
 }
+
 int main(){
     /* 
     Matrix A = (M, K) 
@@ -30,7 +31,7 @@ int main(){
     cudaMalloc(&d_C, (M * N) *sizeof(float));
 
     //Host Variables 
-    float *test = new float[M * K];
+    
     float *matrixA = new float[M * K];
     float *matrixB = new float[K * N];
     float *matrixC = new float[M * N];
@@ -38,12 +39,15 @@ int main(){
     matrixA_Filled(matrixA, M, K);
     matrixB_Filled(matrixB, K, N);
 
+    // Copy the host matrices into the device matrices
     cudaMemcpy(d_A, matrixA, (M*K) * sizeof(float), cudaMemcpyHostToDevice);
     cudaMemcpy(d_B, matrixB, (K*N) * sizeof(float), cudaMemcpyHostToDevice);
 
-    cudaMemcpy(test, d_A, (M*K) * sizeof(float), cudaMemcpyDeviceToHost);
-
-    for(int i = 0; i< M*K; i++){
-        printf("%f ", test[i]);
-    }
+    // Free Memory
+    cudaFree(d_A);
+    cudaFree(d_B);
+    cudaFree(d_C);
+    delete[] matrixA;
+    delete[] matrixB;
+    delete[] matrixC;
 }
